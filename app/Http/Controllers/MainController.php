@@ -30,6 +30,14 @@ class MainController extends Controller
 
     public function viewContactUs()
     {
-        
+        return view('main.contact');
+    }
+    public function viewAboutUs()
+    {
+        return view('main.about');
+    }
+    public function viewAllTrucks()
+    {
+        return view('main.trucks');
     }
 }

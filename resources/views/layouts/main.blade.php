@@ -7,17 +7,8 @@
       	<title>CSK Trading - Importers of Trucks and Truck Cabins</title>
 	    
 	    <!-- Bootstrap -->
-	    <link href="css/main.combined.css" rel="stylesheet">
-	    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
-
-	    <!-- jS-->
-	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
-	    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-	    <script src="http://d1k45mg6o9axif.cloudfront.net/assets/js/slick.min.js"></script>
-	    <script src="js/common-scripts.js"></script>
-	    <script src="js/readmore.min.js"></script>
-	    <script src="js/bootstrap.min.js"></script>
-	    <script src="js/bootstrap-datepicker.min.js"></script>
+	    <link href="{{ URL::asset('css/main.combined.css') }}" rel="stylesheet">
+	    <link href="{{ URL::asset('font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
 
 	    <!-- Google Fonts -->
 	    <script type="text/javascript">
@@ -33,30 +24,8 @@
 			  	s.parentNode.insertBefore(wf, s);
 			  })(); 
   		</script>
-  		<!-- STYLES FOR FlowPlayer-->
-  		<!-- a player skin as usual -->
-  		<link rel="stylesheet" href="css/minimalist.css">
-		<!-- the quality selector stylesheet -->
-		<link rel="stylesheet" href="css/quality-selector.css">
-		<!-- Add fancyBox main stylesheet -->
-		<!-- <link rel="stylesheet" type="text/css" href="/media/fancybox/jquery.fancybox.css?v=2.1.4" media="screen"> -->
-
-		<!-- the Flowplayer script as usual -->
-		<script src="//releases.flowplayer.org/6.0.3/flowplayer.min.js"></script>
-		<!-- the quality selector plugin -->
-		<script src="//flowplayer.org/drive/quality-selector-v6.js"></script>
-		<!-- Add fancyBox main JS -->
-		<!-- <script src="/media/fancybox/jquery.fancybox.js?v=2.1.4"></script> -->
-
-		<!-- Add jQuery library -->
-		<!-- <script type="text/javascript" src="lib/jquery-1.10.1.min.js"></script>-->
-		<!--<link rel="stylesheet" type="text/css" href="popup.css">-->
-		<script src="js/script.js"></script>
-		<!-- Magnific Popup core CSS file -->
-		<link rel="stylesheet" href="css/magnific-popup.css">
-		<!-- Magnific Popup core JS file -->
-		<script src="js/jquery.magnific-popup.js"></script>
-		<meta name="google-site-verification" content="7R7RcjqNlRGWAHpjfvcSfs6J3DuhLIMKPY00UqhsIsY" />
+  	
+		<!-- <meta name="google-site-verification" content="7R7RcjqNlRGWAHpjfvcSfs6J3DuhLIMKPY00UqhsIsY" /> -->
 	    <meta name="description" content="Welcome to CSK Trading. We are importers of Japan used trucks">
 	    <meta charset="utf-8">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -70,23 +39,23 @@
 			<nav id="nav-menu" class="nav-content">
 				<div id="main-nav" class="main-desktop-only hidden-xs">
 					<div class="logo navbar-left">
-						<a href="index.html"><img src="images/csk-logo.png" style = "height:60px;"/></a>
+						<a href="index.html"><img src="images/csk-logo.png" style = "height:70px; width:135px;"/></a>
 					</div>
 					<div class="navbar-right">
 						<ul class="navbar-nav header-menu">
-							<li><a href="">HOME</a></li>
-							<li><a href="">TRUCKS</a></li>
-							<li><a href="">ABOUT US</a></li>
-							<li><a href="">CONTACT US</a></li>
+							<li><a href="{{ route('main:home') }}">HOME</a></li>
+							<li><a href="{{ route('main:trucks')}}">TRUCKS</a></li>
+							<li><a href="{{ route('main:about') }}">ABOUT US</a></li>
+							<li><a href="{{ route('main:contact') }}">CONTACT US</a></li>
 							<li><a href="">LOGIN</a></li> 
 						</ul>
-						<p style="text-align: right;margin-right: 11px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif">Inquire Now (032) 236 - 6797</p>
+						<!-- <p style="text-align: right;margin-right: 11px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif">Inquire Now (032) 236 - 6797</p> -->
 					</div>
 				</div>
 				<div id="secondary-nav" class="secondary-desktop-only hidden-xs">
 					<div class="container-fluid nopadding">
 						<ul class="navbar-nav menu">
-							<li class="li-home"><a href="index.html">HOME</a></li>
+							<li class="li-home"><a href="{{ route('main:home') }}">HOME</a></li>
 							<li class="li-services services-hover">
                             	<a href = "#" class="services-top-menu">TRUCKS</a>
                             	<ul class="nav secondary-sub services-sub-menu" style="display:none;">
@@ -95,14 +64,14 @@
 				                    <li><a href="">CARGO TRUCKS</a></li>
 				                    <li><a href="">DUMP TRUCKS</a></li>
 				                    <li><a href="">CHILLER VANS</a></li>
-				                    <li><a href="products.html">ALL TRUCKS</a></li>
+				                    <li><a href="{{ route('main:trucks') }}">ALL TRUCKS</a></li>
                 				</ul> 
             				</li>
                             <li class="about-us about-hover">
-                            	<a href = "about.html">ABOUT US</a>
+                            	<a href = "{{ route('main:about') }}">ABOUT US</a>
             				</li>
             				<li class="about-us about-hover">
-            					<a href = "contact.html">CONTACT US</a>
+            					<a href = "{{ route('main:contact') }}">CONTACT US</a>
                 			</li>
                 		</ul>
                		</div>
@@ -257,15 +226,49 @@
 					<div class="logo pull-left" style="margin: 0 338px;">
 						<span>&copy; 2016 CSK TRADING CEBU PHILIPPINES. ALL RIGHTS RESERVED.</span>
 					</div>
-					<div class="fb_icon pull-right">
+					<!-- <div class="fb_icon pull-right">
 						<a href="https://www.facebook.com/csktrading" target="_blank">
 							<i class="fa fa-facebook"></i>
 						</a>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</footer>
   		<!--footer-wrapper-->
+  		<!-- JS Files -->
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+	    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	    <script src="http://d1k45mg6o9axif.cloudfront.net/assets/js/slick.min.js"></script>
+	    <script src="{{ URL::asset('js/common-scripts.js') }}"></script>
+	    <script src="{{ URL::asset('js/readmore.min.js') }}"></script>
+	    <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
+	    <script src="{{ URL::asset('js/bootstrap-datepicker.min.js') }}"></script>
+  		<?php 
+  		/**
+  		*	<!-- STYLES FOR FlowPlayer-->
+  		*<!-- a player skin as usual -->
+  		*<link rel="stylesheet" href="css/minimalist.css">
+		*<!-- the quality selector stylesheet -->
+		*<link rel="stylesheet" href="css/quality-selector.css">
+		*<!-- Add fancyBox main stylesheet -->
+		*<!-- <link rel="stylesheet" type="text/css" href="/media/fancybox/jquery.fancybox.css?v=2.1.4" media="screen"> -->
+		*
+		*<!-- the Flowplayer script as usual -->
+		*<script src="//releases.flowplayer.org/6.0.3/flowplayer.min.js"></script>
+		*<!-- the quality selector plugin -->
+		*<script src="//flowplayer.org/drive/quality-selector-v6.js"></script>
+		*<!-- Add fancyBox main JS -->
+		*<!-- <script src="/media/fancybox/jquery.fancybox.js?v=2.1.4"></script> -->
+		*<!-- Add jQuery library -->
+		*<!-- <script type="text/javascript" src="lib/jquery-1.10.1.min.js"></script>-->
+		*<!--<link rel="stylesheet" type="text/css" href="popup.css">-->
+		*<script src="js/script.js"></script>
+		*<!-- Magnific Popup core CSS file -->
+		*<link rel="stylesheet" href="css/magnific-popup.css">
+		*<!-- Magnific Popup core JS file -->
+		*<script src="js/jquery.magnific-popup.js"></script>
+		*/
+		?>
 	</body>
 </html>
 

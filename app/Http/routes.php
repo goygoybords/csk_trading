@@ -11,7 +11,23 @@
 |
 */
 
-Route::get('/','MainController@index');
+Route::get('/',  function () {
+    //
+    return redirect()->route('main:home');
+});
+
+
+Route::group([ 'as' => 'main:' , 'middleware' => 'web'], function () 
+{
+  
+    Route::get('/home'    , ['as' => 'home'    , 'uses' => 'MainController@index' ]  );
+	Route::get('/contact' , ['as' => 'contact' , 'uses' => 'MainController@viewContactUs' ]);
+	Route::get('/about'   , ['as' => 'about'   , 'uses' => 'MainController@viewAboutUs' ]);
+	Route::get('/trucks'  , ['as' => 'trucks'  , 'uses' => 'MainController@viewAllTrucks' ]);
+});
+
+
+
 
 Route::auth();
 
