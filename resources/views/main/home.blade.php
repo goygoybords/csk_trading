@@ -22,25 +22,25 @@
 			<div class="row">			
 				<div class="col-xs-6 col-md-4">
 					<div class="cars-container">
-						<a href="?page=prodDetail&amp;cat=17" title="CROSSWIND">
-						<h4>CROSSWIND</h4>
-							<img src="http://d1k45mg6o9axif.cloudfront.net/uploads/files/panel_3/crosswindhome-final.jpg">
+						<a href="{{ route('main:trucks' , ['slug' => 'aluminum-vans']) }}" title="ALUMINUM VANS">
+						<h4>ALUMINUM VANS</h4>
+							<img src="http://localhost/csk_trading/storage/uploads/van.jpg">
 						</a>
 					</div>
 				</div>
 				<div class="col-xs-6 col-md-4">
 					<div class="cars-container">
-						<a href="?page=prodDetail&amp;cat=18" title="D-MAX">
-						<h4>D-MAX</h4>
-							<img src="http://d1k45mg6o9axif.cloudfront.net/uploads/files/panel_4/dmax-home-box.jpg">
+						<a href="{{ route('main:trucks' , ['slug' => 'cab-chassis']) }}" title="CAB CHASSIS">
+						<h4>CAB CHASSIS</h4>
+							<img src="http://localhost/csk_trading/storage/uploads/van.jpg">
 						</a>
 					</div>
 				</div>
 				<div class="col-xs-6 col-md-4">
 					<div class="cars-container">
-						<a href="?page=prodDetail&amp;cat=19" title="mu-X">
-						<h4>mu-X</h4>
-							<img src="http://d1k45mg6o9axif.cloudfront.net/uploads/files/panel_5/mux-home-box.jpg">
+						<a href="{{ route('main:trucks' , ['slug' => 'cargo-trucks']) }}" title="CARGO TRUCKS">
+						<h4>CARGO TRUCKS</h4>
+							<img src="http://localhost/csk_trading/storage/uploads/van.jpg">
 						</a>
 					</div>
 				</div>
@@ -49,25 +49,25 @@
 			<div class="row">			
 				<div class="col-xs-6 col-md-4">
 					<div class="cars-container">
-						<a href="?page=prodDetail&amp;cat=21" title="N-SERIES">
-						<h4>N-SERIES</h4>
-							<img src="http://d1k45mg6o9axif.cloudfront.net/uploads/files/panel_7/cat_05.png">
+						<a href="{{ route('main:trucks' , ['slug' => 'dump-trucks']) }}" title="DUMP TRUCKS">
+						<h4>DUMP TRUCKS</h4>
+							<img src="http://localhost/csk_trading/storage/uploads/van.jpg">
 						</a>
 					</div>
 				</div>
 				<div class="col-xs-6 col-md-4">
 					<div class="cars-container">
-						<a href="?page=prodDetail&amp;cat=28" title="F-SERIES">
-						<h4>F-SERIES</h4>
-							<img src="http://d1k45mg6o9axif.cloudfront.net/uploads/files/panel_8/cat_06.png">
+						<a href="{{ route('main:trucks' , ['slug' => 'chiller-vans']) }}" title="CHILLER VANS">
+						<h4>CHILLER VANS</h4>
+							<img src="http://localhost/csk_trading/storage/uploads/van.jpg">
 						</a>
 					</div>
 				</div>
 				<div class="col-xs-6 col-md-4">
 					<div class="cars-container">
-						<a href="?page=prodDetail&amp;cat=29" title="C&amp;E SERIES">
-						<h4>C&amp;E SERIES</h4>
-							<img src="http://d1k45mg6o9axif.cloudfront.net/uploads/files/panel_9/cat_07.png">
+						<a href="{{ route('main:trucks' , ['slug' => 'other-equipments']) }}" title="OTHER EQUIPMENTS">
+						<h4>OTHER EQUIPMENTS</h4>
+							<img src="http://localhost/csk_trading/storage/uploads/van.jpg">
 						</a>
 					</div>
 				</div>

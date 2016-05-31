@@ -23,7 +23,8 @@ Route::group([ 'as' => 'main:' , 'middleware' => 'web'], function ()
     Route::get('/home'    , ['as' => 'home'    , 'uses' => 'MainController@index' ]  );
 	Route::get('/contact' , ['as' => 'contact' , 'uses' => 'MainController@viewContactUs' ]);
 	Route::get('/about'   , ['as' => 'about'   , 'uses' => 'MainController@viewAboutUs' ]);
-	Route::get('/trucks'  , ['as' => 'trucks'  , 'uses' => 'MainController@viewAllTrucks' ]);
+	Route::get('/trucks/{slug}'  , ['as' => 'trucks'  , 'uses' => 'MainController@viewAllTrucks' ]);
+	Route::get('/viewTruck/{post-name}/{id}', ['as'=> 'viewTruck', 'uses' => 'MainController@viewTruck']);
 });
 
 

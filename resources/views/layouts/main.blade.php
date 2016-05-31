@@ -39,15 +39,18 @@
 			<nav id="nav-menu" class="nav-content">
 				<div id="main-nav" class="main-desktop-only hidden-xs">
 					<div class="logo navbar-left">
-						<a href="index.html"><img src="images/csk-logo.png" style = "height:70px; width:135px;"/></a>
+						<a href="index.html">
+							<img src="{{ URL::asset('images/csk-logo.png')}}" style = "height:70px; width:135px;"/>
+						</a>
+
 					</div>
 					<div class="navbar-right">
 						<ul class="navbar-nav header-menu">
 							<li><a href="{{ route('main:home') }}">HOME</a></li>
-							<li><a href="{{ route('main:trucks')}}">TRUCKS</a></li>
+							<li><a href="{{ route('main:trucks', ['slug' => 'all-trucks']  )}}">TRUCKS</a></li>
 							<li><a href="{{ route('main:about') }}">ABOUT US</a></li>
 							<li><a href="{{ route('main:contact') }}">CONTACT US</a></li>
-							<li><a href="">LOGIN</a></li> 
+							<li><a href="{{ url('/login') }}">LOGIN</a></li> 
 						</ul>
 						<!-- <p style="text-align: right;margin-right: 11px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif">Inquire Now (032) 236 - 6797</p> -->
 					</div>
@@ -64,7 +67,10 @@
 				                    <li><a href="">CARGO TRUCKS</a></li>
 				                    <li><a href="">DUMP TRUCKS</a></li>
 				                    <li><a href="">CHILLER VANS</a></li>
-				                    <li><a href="{{ route('main:trucks') }}">ALL TRUCKS</a></li>
+				                    <li><a href="">OTHER EQUIPMENTS</a></li>
+				                    <li>
+				                    	<a href="{{ route('main:trucks' , ['slug' => 'all-trucks'] ) }}">ALL TRUCKS</a>
+				                    </li>
                 				</ul> 
             				</li>
                             <li class="about-us about-hover">

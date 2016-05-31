@@ -6,13 +6,13 @@
 					<div class="page-header">
 						<h2 class="page-title">All Trucks</h3>
 					</div>
-					<input type="hidden" id="totalpagecount" value="10" />
-					<input type="hidden" id="currentpage" value="1" />
 					<div class="row">				
 						<div class="col-md-4 col-sm-6 grid-content">
 							<div class="news">
 								<a href="?page=news&eid=154">
-									<div style="background-image: url('./uploads/files/news_154/1.jpg'); background-position: top center; background-size: 100% auto; background-repeat: no-repeat; width: 100%; height: 150px;">
+									<div style="background-image: url('http://localhost/csk_trading/storage/uploads/van.jpg'); 
+									background-position: top center; 
+									background-size: 100% auto; background-repeat: no-repeat; width: 100%; height: 150px;">
 									</div>
 									<h4 style="overflow: hidden;">IPC announced 200K raffle promo winners</h4>
 								</a>
