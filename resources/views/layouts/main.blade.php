@@ -39,7 +39,7 @@
 			<nav id="nav-menu" class="nav-content">
 				<div id="main-nav" class="main-desktop-only hidden-xs">
 					<div class="logo navbar-left">
-						<a href="index.html">
+						<a href="{{ route('main:home') }}">
 							<img src="{{ URL::asset('images/csk-logo.png')}}" style = "height:70px; width:135px;"/>
 						</a>
 
