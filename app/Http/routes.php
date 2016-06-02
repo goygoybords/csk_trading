@@ -16,10 +16,11 @@ Route::get('/',  function () {
     return redirect()->route('main:home');
 });
 
-
+Route::get('/test', 'MainController@test');
+Route::post('/test', 'MainController@postTest');
 Route::group([ 'as' => 'main:' , 'middleware' => 'web'], function () 
 {
-  
+  	
     Route::get('/home'    , ['as' => 'home'    , 'uses' => 'MainController@index' ]  );
 	Route::get('/contact' , ['as' => 'contact' , 'uses' => 'MainController@viewContactUs' ]);
 	Route::get('/about'   , ['as' => 'about'   , 'uses' => 'MainController@viewAboutUs' ]);

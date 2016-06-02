@@ -43,4 +43,28 @@ class MainController extends Controller
     {
         
     }
+    public function test()
+    {
+        return view('test');
+    }
+    public function postTest(Request $request)
+    {   
+        $file = $request->file('fileToUpload');
+        $rules = ['fileToUpload' => 'mimes:jpg,jpeg,png|between:1,3000' ];
+        $this->validate($request, $rules);
+     
+        $path = storage_path()."\uploads";
+         
+        $filename = $file->getClientOriginalName();
+        $type = $file->getMimeType();
+        if ($request->hasFile('fileToUpload')) 
+        {
+            $file->move($path , $filename);
+            return redirect('/test')->with('msg' , 'file uploaded');
+        }
+        else
+        {
+            return redirect('/test')->with('msg' , 'file not uploaded');
+        }
+    }
 }
