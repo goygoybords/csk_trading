@@ -5,29 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use File;
-use Response;
+
 
 class MainController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
-        //$this->middleware('auth');
+        $this->middleware('web');
+        
     } 
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-      	return view('main.home');
+        return view('main.home');
     }
 
     public function viewContactUs()

@@ -16,6 +16,7 @@ class CreateTblTruckCategory extends Migration
         Schema::create('truck_category', function (Blueprint $table) {
             $table->increments('truck_category_id');
             $table->string('description')->unique();
+            $table->string('slug');
             $table->boolean('status');
         });
     }

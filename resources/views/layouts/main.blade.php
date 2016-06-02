@@ -62,12 +62,11 @@
 							<li class="li-services services-hover">
                             	<a href = "#" class="services-top-menu">TRUCKS</a>
                             	<ul class="nav secondary-sub services-sub-menu" style="display:none;">
-				                    <li><a href="">ALUMINUM VANS</a></li>
-				                    <li><a href="">CAB CHASSIS</a></li>
-				                    <li><a href="">CARGO TRUCKS</a></li>
-				                    <li><a href="">DUMP TRUCKS</a></li>
-				                    <li><a href="">CHILLER VANS</a></li>
-				                    <li><a href="">OTHER EQUIPMENTS</a></li>
+                            		@foreach($categories as $c)
+				                    	<li>
+				                    		<a href="{{ route('main:trucks' , ['slug' => $c->slug ]) }}">{{ $c->description }}</a>
+				                    	</li>          
+				                    @endforeach
 				                    <li>
 				                    	<a href="{{ route('main:trucks' , ['slug' => 'all-trucks'] ) }}">ALL TRUCKS</a>
 				                    </li>
@@ -137,13 +136,13 @@
 	  	<footer id="footer-wrapper">
   			<div class="secondary-footer container">
      			<div class="row">
-        			<div class="col-md-4 nopadding">
+        			<!-- <div class="col-md-4 nopadding">
           				<div class="col-xs-12 col-md-4 footer nopadding">
             				<div class="footer-name products">
-				              	<!-- <h4>PRODUCTS</h4> -->
+				              	<h4>PRODUCTS</h4>
 				            	<div class="arrow"></div>
 				          	</div>
-			              	<!-- <ul class="footer-list">
+			              	<ul class="footer-list">
 			              		<li><a href="?page=prodDetail&cat=17">Crosswind</a></li>
                           		<li><a href="?page=prodDetail&cat=18">D-MAX</a></li>
                           		<li><a href="?page=prodDetail&cat=19">mu-X</a></li>
@@ -153,63 +152,63 @@
 		                        <li><a class="menu_cat_link" href="?page=product#Powertrain">Powertrain</a></li>
 		                        <li><a href="?page=bus">Bus</a></li>
 		                        <li><a href="?page=product">All Products</a></li>
-		                    </ul>  -->
+		                    </ul> 
 		                </div>
 		                <div class="col-xs-12 col-md-8 footer nopadding">
-		                	<div class="footer-name parts-services"><!-- <h4>PARTS & SERVICE</h4> -->
+		                	<div class="footer-name parts-services"><h4>PARTS & SERVICE</h4>
 		                		<div class="arrow"> </div>
 		                	</div>
-				             <!--  <ul class="footer-list">
+				              <ul class="footer-list">
 				                <li><a href="?page=parts">Parts & Accessories</a></li>
 				                <li><a href="?page=periodic">Periodic Maintenance</a></li>
 				                <li><a href="?page=serviceAnnounce">Service Campaign Announcements</a></li>
-				              </ul> -->
+				              </ul>
 				        </div>
 				    </div>
 				    <div class="col-md-5 nopadding">
 				    	<div class="col-xs-12 col-md-3 footer nopadding">
 				    		<div class="footer-name latest">
-				    			<!-- <h4>LATEST</h4> -->
+				    			<h4>LATEST</h4>
 				    			<div class="arrow"></div>
 				    		</div>
-				             <!--  <ul class="footer-list">
+				              <ul class="footer-list">
 				                <li><a href="?page=promos">Promos</a></li>
 				                <li><a href="?page=news">News</a></li>
 				                <li><a href="?page=activities">Events</a></li>
 				                <li><a href="?page=video">Videos</a></li>
-				              </ul> -->
+				              </ul>
 				        </div>
 				        <div class="col-xs-12 col-md-3 footer nopadding">
-				        	<div class="footer-name dealers"><!-- <h4>DEALERS</h4> -->
+				        	<div class="footer-name dealers"><h4>DEALERS</h4>
 				        		<div class="arrow"> </div>
 				        	</div>
-				             <!--  <ul class="footer-list">
+				              <ul class="footer-list">
 				                <li><a href="?page=dealer&area=metro+manila">Metro Manila</a></li>
 				                <li><a href="?page=dealer&area=luzon">Luzon</a></li>
 				                <li><a href="?page=dealer&area=visayas">Visayas</a></li>
 				                <li><a href="?page=dealer&area=mindanao">Mindanao</a></li>
-				              </ul> -->
+				              </ul>
 				        </div>
 				        <div class="col-xs-12 col-md-6 footer nopadding">
-				        	<div class="footer-name extra-mile"><!-- <h4>EXTRA MILE</h4> -->
+				        	<div class="footer-name extra-mile"><h4>EXTRA MILE</h4>
 				        		<div class="arrow"> </div>
 				        	</div>
-				             <!--  <ul class="footer-list">
+				              <ul class="footer-list">
 				                <li><a href="?page=fuel">Fuel Calculator</a></li>
 				                <li><a href="?page=isuzuKababayan">Isuzu Kababayan</a></li>
 				                <li><a href="?page=bpi">BPI Family Online Financing</a></li>
 				                <li><a href="?page=careers">Careers</a></li>
 				                <li><a href="?page=embassy">Embassy Locator</a></li>
-				              </ul> -->
+				              </ul>
 			          	</div>
 			        </div>
 			        <div class="col-md-3 nopadding">
 			        	<div class="col-xs-12 footer nopadding">
 			        		<div class="footer-name contact_us">
-			        			<!-- <h4>CONTACT US</h4> -->
+			        			<h4>CONTACT US</h4>
 			        			<div class="arrow"> </div>
 			        		</div>
-				             <!--  <ul class="footer-list">
+				              <ul class="footer-list">
 				                <li><a href="?page=contact"><i class="fa fa-paper-plane-o"></i>Send Us A Message</a></li>
 				                <li><i class="fa fa-phone"></i>Laguna:(049)541-0224</li>
 				                <li><i class="fa fa-phone"></i>Manila:(632)757-6070</li>
@@ -222,9 +221,9 @@
 				                    <li>&nbsp; Binan Laguna,4024</li>
 				                  </ul>
 				                </li>
-				              </ul> -->
+				              </ul>
 				        </div>
-				    </div>
+				    </div> -->
 				</div>
 			</div>
 			<div class="main-footer-bg">
