@@ -31,8 +31,9 @@ Route::group([ 'as' => 'main:' , 'middleware' => 'web'], function ()
 
 Route::group([ 'as' => 'admin:' , 'middleware' => 'auth'], function () 
 {
-	Route::get('/dashboard' , ['as' => 'dashboard', 'uses' => 'AdminController@index'] );
-	
+	Route::get('/dashboard' , ['as' => 'dashboard' , 'uses' => 'AdminController@index'] );
+	Route::get('/listTrucks', ['as' => 'listTrucks', 'uses' => 'AdminController@ViewTrucks']);
+
 });
 
 

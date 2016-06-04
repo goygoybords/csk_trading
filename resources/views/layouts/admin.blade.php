@@ -14,6 +14,11 @@
             <!-- MetisMenu CSS -->
             <link href="{{ URL::asset('admin/bower_components/metisMenu/dist/metisMenu.min.css') }}" rel="stylesheet">
 
+            <link href="{{ URL::asset('admin/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css') }}" rel="stylesheet">
+
+            <!-- DataTables Responsive CSS -->
+            <link href="{{ URL::asset('admin/bower_components/datatables-responsive/css/dataTables.responsive.css') }}" rel="stylesheet">
+
             <!-- Timeline CSS -->
             <link href="{{ URL::asset('admin/dist/css/timeline.css') }}" rel="stylesheet">
 
@@ -38,14 +43,25 @@
             <!-- Metis Menu Plugin JavaScript -->
             <script src="{{ URL::asset('admin/bower_components/metisMenu/dist/metisMenu.min.js') }}"></script>
 
-            <!-- Morris Charts JavaScript -->
+           
+
+            <!-- Custom Theme JavaScript -->
+            <script src="{{ URL::asset('admin/dist/js/sb-admin-2.js') }}"></script>
+
+             <!-- Morris Charts JavaScript -->
             <script src="{{ URL::asset('admin/bower_components/raphael/raphael-min.js') }}"></script>
             <script src="{{ URL::asset('admin/bower_components/morrisjs/morris.min.js') }}"></script>
             <script src="{{ URL::asset('admin/js/morris-data.js') }} "></script>
 
-            <!-- Custom Theme JavaScript -->
-            <script src="{{ URL::asset('admin/dist/js/sb-admin-2.js') }}"></script>
-    </body>
+             <!-- DataTables JavaScript -->
+            <script src="{{ URL::asset('admin/bower_components/datatables/media/js/jquery.dataTables.min.js') }}"></script>
+            <script src="{{ URL::asset('admin/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js') }}"></script>
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $('#dataTables-example').DataTable();
+                });
+            </script>
+        </body>
     </html>
     
 
