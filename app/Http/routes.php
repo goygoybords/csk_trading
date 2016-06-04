@@ -15,6 +15,7 @@ Route::get('/',  function () {
     //
     return redirect()->route('main:home');
 });
+Route::auth();
 
 Route::get('/test', 'MainController@test');
 Route::post('/test', 'MainController@postTest');
@@ -28,8 +29,14 @@ Route::group([ 'as' => 'main:' , 'middleware' => 'web'], function ()
 	Route::get('/viewTruck/{post-name}/{id}', ['as'=> 'viewTruck', 'uses' => 'MainController@viewTruck']);
 });
 
+Route::group([ 'as' => 'admin:' , 'middleware' => 'auth'], function () 
+{
+	Route::get('/dashboard' , ['as' => 'dashboard', 'uses' => 'AdminController@index'] );
+	
+});
 
 
 
-Route::auth();
+
+
 
