@@ -17,14 +17,15 @@ class CreateTblTrucks extends Migration
             $table->increments('truck_id');
             $table->integer('truck_category_id')->unsigned();
             $table->string('post_name');
+            $table->date('date_posted');
             $table->string('brand');
             $table->string('body_type');
             $table->string('model');
             $table->string('engine');
+            $table->decimal('price', 10, 2);
             $table->longText('description');
             $table->string('image_path');
             $table->boolean('status');
-
             $table->foreign('truck_category_id')->references('truck_category_id')->on('truck_category');
         
         });

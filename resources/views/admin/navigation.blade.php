@@ -53,10 +53,10 @@
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> Trucks<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="blank.html">Add Trucks</a>
+                                    <a href="{{ route('admin:truckEntry') }}">Add Trucks</a>
                                 </li>
                                 <li>
-                                    <a href="login.html">View List of Trucks</a>
+                                    <a href="{{ route('admin:listTrucks') }}">View List of Trucks</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

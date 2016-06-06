@@ -325,3 +325,10 @@
     <!-- /#wrapper -->
     @endsection
 
+    @section('customjs')
+            <!-- Morris Charts JavaScript -->
+            <script src="{{ URL::asset('admin/bower_components/raphael/raphael-min.js') }}"></script>
+            <script src="{{ URL::asset('admin/bower_components/morrisjs/morris.min.js') }}"></script>
+            <script src="{{ URL::asset('admin/js/morris-data.js') }} "></script>
+    @endsection
+
