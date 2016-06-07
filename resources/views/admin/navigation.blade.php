@@ -65,10 +65,10 @@
                             <a href="#"><i class="fa fa-sitemap fa-fw"></i>Truck Category<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="blank.html">Add Truck Category</a>
+                                    <a href="{{ route('admin:categoryEntry') }}">Add Truck Category</a>
                                 </li>
                                 <li>
-                                    <a href="login.html">View List of Truck Category</a>
+                                    <a href="{{ route('admin:listCategory')}}">View List of Truck Category</a>
                                 </li>
                             </ul>
                         </li>

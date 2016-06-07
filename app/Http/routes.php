@@ -32,10 +32,15 @@ Route::group([ 'as' => 'main:' , 'middleware' => 'web'], function ()
 Route::group([ 'as' => 'admin:' , 'middleware' => 'auth'], function () 
 {
 	Route::get('/dashboard' , ['as' => 'dashboard'  , 'uses' => 'AdminController@index'] );
+
+	// Trucks
 	Route::get('/listTrucks', ['as' => 'listTrucks' , 'uses' => 'AdminController@viewTrucks']);
 	Route::get('/truckEntry', ['as' => 'truckEntry' , 'uses' => 'AdminController@viewTruckEntry']);
 	Route::post('/truckEntry', ['as' => 'postTruckEntry' , 'uses' => 'AdminController@postTruckEntry']);
 
+	//Truck Category
+	Route::get('/listCategory', ['as' => 'listCategory' , 'uses' => 'AdminController@viewCategory']);
+	Route::get('/categoryEntry', ['as' => 'categoryEntry' , 'uses' => 'AdminController@viewCategoryEntry']);
 });
 
 

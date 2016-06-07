@@ -8,6 +8,7 @@ class Truck_Category extends Model
 {
     //
     protected $table = "truck_category";
+    public $timestamps = false;
 
     protected $fillable = [
         'description', 'slug', 'status',

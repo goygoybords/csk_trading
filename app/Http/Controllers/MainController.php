@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-
+use App\Truck;
 
 class MainController extends Controller
 {
@@ -29,15 +29,8 @@ class MainController extends Controller
     }
     public function viewAllTrucks($slug)
     {
-        //code for displaying uploads in storage
-        $path = storage_path('uploads\van.jpg');
-        // $file = File::get($path);
-        // $type = File::mimeType($path);
-        // $response = Response::make($file, 200);
-        // $response->header("Content-Type", $type);
-        // return $response;
-        
-        return view('main.trucks')->with(compact('path'));
+        $trucks = Truck::where('status', 1)->get();
+        return view('main.trucks')->with(compact('trucks'));
     }
     public function viewTruck($id, $post_name)
     {
@@ -49,6 +42,14 @@ class MainController extends Controller
     }
     public function postTest(Request $request)
     {   
+         //code for displaying uploads in storage
+        $path = storage_path('uploads\van.jpg');
+        // $file = File::get($path);
+        // $type = File::mimeType($path);
+        // $response = Response::make($file, 200);
+        // $response->header("Content-Type", $type);
+        // return $response;
+
         $file = $request->file('fileToUpload');
         $rules = ['fileToUpload' => 'mimes:jpg,jpeg,png|between:1,3000' ];
         $this->validate($request, $rules);

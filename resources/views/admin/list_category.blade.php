@@ -21,22 +21,19 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Date Posted</th>
-                                            <th>Post Name</th>
-                                            <th>Truck Category</th>
-                                            <th>Brand</th>
-                                            <th>Price</th>
+                                            <th>ID</th>
+                                            <th>Description</th>
+                                            <th>Slug</th>
                                             <th>Action</th>
+                                         
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($trucks as $t)
+                                        @foreach($categories as $c)
                                         <tr class="odd gradeX">
-                                            <td>{{ $t->date_posted }}</td>
-                                            <td>{{ $t->post_name }}</td>
-                                            <td>{{ $t->truck_category_id }}</td>
-                                            <td>{{ $t->brand }}</td>
-                                            <td>{{ $t->price }}</td>
+                                            <td>{{ $c->truck_category_id }}</td>
+                                            <td>{{ $c->description }}</td>
+                                            <td>{{ $c->slug }}</td>
                                             <td>
                                                 <a href = "">Edit</a>
                                                 <a href = "">Delete</a>
