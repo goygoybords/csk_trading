@@ -29,8 +29,12 @@ class MainController extends Controller
     }
     public function viewAllTrucks($slug)
     {
-        $trucks = Truck::where('status', 1)->get();
-        return view('main.trucks')->with(compact('trucks'));
+        if($slug == 'all-trucks')
+            $trucks = Truck::where('status', 1)->get();
+        else
+            $trucks = Truck::where('status', 1)
+                ->get();
+         return view('main.trucks')->with(compact('trucks'));
     }
     public function viewTruck($id, $post_name)
     {

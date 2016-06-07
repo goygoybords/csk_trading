@@ -32,8 +32,7 @@
 							</div>
 						</div>
 						@endforeach	
-					</div>
-							
+					</div>					
 					<div class="load-older-news">
 						<button class="btn btn-load">Load More Trucks<i class="fa fa-angle-down"></i></button>
 					</div>
