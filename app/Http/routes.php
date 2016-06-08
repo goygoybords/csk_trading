@@ -26,7 +26,7 @@ Route::group([ 'as' => 'main:' , 'middleware' => 'web'], function ()
 	Route::get('/contact' , ['as' => 'contact' , 'uses' => 'MainController@viewContactUs' ]);
 	Route::get('/about'   , ['as' => 'about'   , 'uses' => 'MainController@viewAboutUs' ]);
 	Route::get('/trucks/{slug}'  , ['as' => 'trucks'  , 'uses' => 'MainController@viewAllTrucks' ]);
-	Route::get('/viewTruck/{post-name}/{id}', ['as'=> 'viewTruck', 'uses' => 'MainController@viewTruck']);
+	Route::get('/viewTruck/truck/{id}', ['as'=> 'viewTruck', 'uses' => 'MainController@viewTruck']);
 });
 
 Route::group([ 'as' => 'admin:' , 'middleware' => 'auth'], function () 
@@ -38,6 +38,8 @@ Route::group([ 'as' => 'admin:' , 'middleware' => 'auth'], function ()
 	Route::get('/truckEntry', ['as' => 'truckEntry' , 'uses' => 'AdminController@viewTruckEntry']);
 	Route::post('/truckEntry', ['as' => 'postTruckEntry' , 'uses' => 'AdminController@postTruckEntry']);
 
+	Route::get('/editTruckEntry/{id}', ['as' => 'editTruckEntry' , 'uses' => 'AdminController@viewEditTruckEntry']);
+	Route::post('/editTruckEntry/{id}', ['as' => 'postEditTruckEntry' , 'uses' => 'AdminController@postEditTruckEntry']);
 	//Truck Category
 	Route::get('/listCategory', ['as' => 'listCategory' , 'uses' => 'AdminController@viewCategory']);
 	Route::get('/categoryEntry', ['as' => 'categoryEntry' , 'uses' => 'AdminController@viewCategoryEntry']);

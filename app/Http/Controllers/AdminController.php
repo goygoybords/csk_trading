@@ -26,8 +26,7 @@ class AdminController extends Controller
     }
     public function viewTruckEntry()
     {
-        $categories = Truck_Category::where('status' , 1)->get();
-        return view('admin.truck_entry')->with(compact('categories'));
+        return view('admin.truck_entry');
     }
     public function postTruckEntry(Request $request)
     {
@@ -70,6 +69,46 @@ class AdminController extends Controller
             return redirect()->route('admin:truckEntry')->with('msg' , 'Truck Details Recorded');
         }
     }
+    public function viewEditTruckEntry($id)
+    {
+        $trucks = Truck::where('status' , 1)
+                        ->where('truck_id' , $id)
+                        ->first();
+
+        return view('admin.truck_entry')->with(compact('trucks'));
+    }
+    public function postEditTruckEntry(Request $request, $id)
+    {
+        $data = $request->all();
+        $rules = [ 'truck_category' => 'required', 
+                   'post_title' => 'required|min:10',
+                   'brand' => 'required',
+                   'body_type' => 'required',
+                   'model' => 'required',
+                   'engine' => 'required',
+                   'price' => 'required',
+                   'description' => 'required',
+                 ];
+
+        $this->validate($request,$rules);
+
+        $updates = ['truck_category_id' => $data['truck_category'] , 
+                    'post_name' => $data['post_title'],
+                    'brand' => $data['brand'],
+                    'body_type' => $data['body_type'],
+                    'model' => $data['model'],
+                    'engine' => $data['engine'],
+                    'price' => floatval($data['price']),
+                    'description' => $data['description']
+                    // 'credit_limit' => $data['credit_limit']
+                   ];
+        
+        $client = Truck::where('status' , 1)
+                    ->where('truck_id' , $id)
+                    ->update($updates);
+
+        return redirect()->route('admin:editTruckEntry' , ['id' => $id ])->with('msg' , 'Truck Details Updated');
+    }
     public function viewCategory()
     {
          $categories = Truck_Category::where('status' , 1)->get();
@@ -78,7 +117,6 @@ class AdminController extends Controller
     }
     public function viewCategoryEntry()
     {
-       
-
+        return view('admin.category_entry');
     }
 }

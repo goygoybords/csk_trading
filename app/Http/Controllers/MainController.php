@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Truck;
+use App\Truck_Category;
+use DB;
 
 class MainController extends Controller
 {
@@ -30,14 +32,29 @@ class MainController extends Controller
     public function viewAllTrucks($slug)
     {
         if($slug == 'all-trucks')
+        {
+            $title = "ALL TRUCKS";
             $trucks = Truck::where('status', 1)->get();
+        }
         else
-            $trucks = Truck::where('status', 1)
+        {
+            $trucks = DB::table('trucks')
+                ->join('truck_category', 'trucks.truck_category_id', '=', 'truck_category.truck_category_id')
+                ->select('trucks.*', 'truck_category.slug', 'truck_category.description')
+                ->where('truck_category.slug', '=', $slug)
                 ->get();
-         return view('main.trucks')->with(compact('trucks'));
+
+            $description = Truck_Category::where('slug' , $slug)->first();
+            $title = $description->description;
+        }
+         return view('main.trucks')->with(compact('trucks', 'title'));
     }
-    public function viewTruck($id, $post_name)
+    public function viewTruck($id)
     {
+        $trucks = Truck::where('truck_id', $id)
+                        ->where('status', 1)
+                        ->first();
+        return view('main.single')->with(compact('trucks'));
         
     }
     public function test()

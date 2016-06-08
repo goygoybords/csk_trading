@@ -38,7 +38,7 @@
                                             <td>{{ $t->brand }}</td>
                                             <td>{{ $t->price }}</td>
                                             <td>
-                                                <a href = "">Edit</a>
+                                                <a href = "{{ route('admin:editTruckEntry' , ['id' => $t->truck_id ]) }}">Edit</a>
                                                 <a href = "">Delete</a>
                                             </td>
                                         </tr>

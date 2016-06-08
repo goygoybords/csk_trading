@@ -14,4 +14,9 @@ class Truck extends Model
        'model', 'engine', 'price', 'description' , 'image_path', 'status'
     ];
 
+
+    public function categories()
+    {
+    	return $this->belongsTo('App\Truck_Category', 'truck_category_id');
+    }
 }

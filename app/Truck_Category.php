@@ -14,4 +14,9 @@ class Truck_Category extends Model
         'description', 'slug', 'status',
     ];
 
+    public function categories()
+    {
+    	return $this->hasMany('App\Truck', 'truck_category_id');
+    }
+
 }

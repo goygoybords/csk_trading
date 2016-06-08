@@ -4,14 +4,14 @@
 			<div class="row">
 				<div class="col-md-12 main-content">
 					<div class="page-header">
-						<h2 class="page-title">All Trucks</h3>
+						<h2 class="page-title">{{ $title }}</h3>
 					</div>
 					
 					<div class="row">	
 					@foreach($trucks as $t)		
 						<div class="col-md-4 col-sm-6 grid-content">
 							<div class="news">
-								<a href="">
+								<a href="{{ route('main:viewTruck' , ['id' => $t->truck_id] ) }}">
 									<!-- <div style="background-image: url('http://localhost/csk_trading/storage/uploads/van.jpg'); 
 									background-position: top center; 
 									background-size: 100% auto; background-repeat: no-repeat; width: 100%; height: 150px;">
