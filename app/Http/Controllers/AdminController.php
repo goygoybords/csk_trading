@@ -119,4 +119,20 @@ class AdminController extends Controller
     {
         return view('admin.category_entry');
     }
+    public function postCategoryEntry(Request $request)
+    {
+        $data = ['description' => strtoupper($request->input('description')), 'slug' => $request->input('slug'), 'status' => 1];
+        $rules = [ 'description' => 'required', 
+                   'slug' => 'required'
+                 ];
+
+        $this->validate($request,$rules);
+
+        $category = new Truck_Category($data);
+        $category->save();
+        
+        return redirect()->route('admin:categoryEntry')->with('msg' , 'New Truck Category Recorded');
+
+
+    }
 }

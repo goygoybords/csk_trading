@@ -19,17 +19,19 @@
                         <div class="panel-body">
                             @if(!isset($trucks))
                             <div class="row">
-                                <form method = "post" action = "{{ route('admin:postTruckEntry') }}" enctype="multipart/form-data"> 
+                                <form method = "post" action = "{{ route('admin:postCategoryEntry') }}" > 
                                 {{ csrf_field() }}
                                 <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Description</label>
                                             <input type = "text" name = "description" class="form-control" value = "{{ old('description') }}">
+                                            @if (Session::has('msg'))
+                                                <div id="error_message">{{ Session::get('msg') }}</div>
+                                            @endif
                                             @if ($errors->has('description'))
                                                 <p> <strong>{{ $errors->first('description') }}</strong></p>
                                             @endif
-                                        </div>
-                                        
+                                        </div> 
                                 </div>
                                 <div class="col-lg-6">
                                         <div class="form-group">

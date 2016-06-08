@@ -19,16 +19,12 @@
 									<div><img src="{{ URL::asset($t->image_path) }}"></div>
 									<h4 style="overflow: hidden;">{{ $t->post_name }}</h4>
 								</a>
-								<p>
-									Brand: {{$t->brand}}
-									<br>
-									Model: {{$t->model }}
-									<br>
-									Engine: {{$t->engine }}
-									<br>
-									Description: {{ $t->description }}
-									
-								</p>
+								<ul>
+									<li>Brand: {{$t->brand}}</li>
+									<li>Model: {{$t->model }}</li>
+									<li>Engine: {{$t->engine }}</li>
+									<li>Description: {{ $t->description }}</li>	
+								</ul>
 							</div>
 						</div>
 						@endforeach	

@@ -41,8 +41,10 @@ Route::group([ 'as' => 'admin:' , 'middleware' => 'auth'], function ()
 	Route::get('/editTruckEntry/{id}', ['as' => 'editTruckEntry' , 'uses' => 'AdminController@viewEditTruckEntry']);
 	Route::post('/editTruckEntry/{id}', ['as' => 'postEditTruckEntry' , 'uses' => 'AdminController@postEditTruckEntry']);
 	//Truck Category
+
 	Route::get('/listCategory', ['as' => 'listCategory' , 'uses' => 'AdminController@viewCategory']);
 	Route::get('/categoryEntry', ['as' => 'categoryEntry' , 'uses' => 'AdminController@viewCategoryEntry']);
+	Route::post('/postCategoryEntry', ['as' => 'postCategoryEntry' , 'uses' => 'AdminController@postCategoryEntry']);
 });
 
 
