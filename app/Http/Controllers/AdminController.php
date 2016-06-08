@@ -132,7 +132,32 @@ class AdminController extends Controller
         $category->save();
         
         return redirect()->route('admin:categoryEntry')->with('msg' , 'New Truck Category Recorded');
+    }
+    public function viewEditCategoryEntry($id)
+    {
+        $cat = Truck_Category::where('status' , 1)
+                        ->where('truck_category_id' , $id)
+                        ->first();
+        return view('admin.category_entry')->with(compact('cat'));
+    }
+    public function postEditCategoryEntry(Request $request, $id)
+    {
+        $data = $request->all();
+        $rules = [ 'description' => 'required', 
+                   'slug' => 'required',
+                 ];
 
+        $this->validate($request,$rules);
+
+        $updates = ['description' => strtoupper($data['description']) , 
+                    'slug' => strtolower($data['slug']),
+                   ];
+
+        $cat = Truck_Category::where('status' , 1)
+                        ->where('truck_category_id' , $id)
+                        ->update($updates);
+        
+        return redirect()->route('admin:editCategory' , ['id' => $id ])->with('msg' , 'Truck Category Details Updated');
 
     }
 }

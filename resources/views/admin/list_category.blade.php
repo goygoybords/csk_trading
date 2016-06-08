@@ -35,7 +35,7 @@
                                             <td>{{ $c->description }}</td>
                                             <td>{{ $c->slug }}</td>
                                             <td>
-                                                <a href = "">Edit</a>
+                                                    <a href = "{{ route('admin:editCategory' , ['id' => $c->truck_category_id ]) }}">Edit</a>
                                                 <a href = "">Delete</a>
                                             </td>
                                         </tr>

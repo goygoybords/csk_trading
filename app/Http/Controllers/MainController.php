@@ -25,6 +25,10 @@ class MainController extends Controller
     {
         return view('main.contact');
     }
+    public function postContactUs(Request $request)
+    {
+
+    }
     public function viewAboutUs()
     {
         return view('main.about');

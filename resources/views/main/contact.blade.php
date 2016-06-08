@@ -34,128 +34,35 @@
 							<div id="contact-form-body">
 								<h3>SEND US A MESSAGE:</h3>
 				 				<p style="color: red;"></p> 					
-				 				<form method="post" class="form-container" id="submitContact">
-							<div class="contact-form">
-								<span>Name</span>
-								<input type="text" name="namePHP" class="FullName textbox" />
-								<div class="error-message-2 error-message-FullName"></div>
-							</div>
-							<div class="contact-form">
-								<span>Email Address</span>
-								<input type="text" name="emailPHP" class="Email textbox" />
-								<div class="error-message-2 error-message-Email"></div>
-							</div>
-							<div class="contact-form">
-								<span>Subject</span>
-								<input type="text" name="subjectPHP" class="ContactSubject textbox" />
-								<div class="error-message-2 error-message-Subject"></div>
-							</div>
-							<div class="contact-form message">
-								<span>Message</span>
-								<textarea class="ContactMessage message" name="msgPHP" rows="4" cols="50"></textarea>
-								<div class="error-message-2 error-message-ContactMessage"></div>
-							</div>
-							<div class="all-fields pull-right"><span>All fields are mandatory.</span></div>
-							<button type="submit" name="submitPHP" class="submit" id="messageSubmit">SEND MESSAGE</button>
+				 			<form method="post" action = "{{ route('main:postContact') }}" class="form-container" id="submitContact">
+				 				{{ csrf_field() }}
+								<div class="contact-form">
+									<span>Name</span>
+									<input type="text" name="name" class="FullName textbox" />
+									<div class="error-message-2 error-message-FullName"></div>
+								</div>
+								<div class="contact-form">
+									<span>Email Address</span>
+									<input type="text" name="email" class="Email textbox" />
+									<div class="error-message-2 error-message-Email"></div>
+								</div>
+								<div class="contact-form">
+									<span>Subject</span>
+									<input type="text" name="subject" class="ContactSubject textbox" />
+									<div class="error-message-2 error-message-Subject"></div>
+								</div>
+								<div class="contact-form message">
+									<span>Message</span>
+									<textarea class="ContactMessage message" name="message" rows="4" cols="50"></textarea>
+									<div class="error-message-2 error-message-ContactMessage"></div>
+								</div>
+								<div class="all-fields pull-right"><span>All fields are mandatory.</span></div>
+								<button type="submit" name="submitPHP" class="submit" id="messageSubmit">SEND MESSAGE</button>
 							</form>
-							<!-- <form style="float:left;margin-top: 0px;margin-right: 0px;width: 100%;line-height: 1.3;" method="post" id="capptcha1">
-								<div class="error-message " id="error-message-recap"></div>
-								<div class="g-recaptcha" data-sitekey="6LdQABUTAAAAAG3UIPteknKKnL5fqJif6mY1Tz30" style="width: 300px; margin: 0 auto; padding-bottom: 15px;"></div>
-								
-							</form> -->
 							</div>
 						</div>
 					</div>
 				</div><!--/col-md-12-->
 			</div><!--/row-->
 		</div><!--/container-->
-
-		 <script type="text/javascript">
-		 var RecaptchaOptions = {
-		    theme : 'white'
-		 };
-		 </script>
-
-		<script type="text/javascript">
-			$('#messageSubmit').click(function() {
-		 	//alert('okay');
-		    $(".error").remove();
-		    var hasError = false;
-		    var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-		    var emailaddressVal = $(".Email").val();
-			var name = $(".FullName").val();
-			var Category = $(".Category").val();
-
-			var PrefferedDealer = $('.PrefferedDealer').val();
-			var ContactSubject = $(".ContactSubject").val();
-			var ContactMessage = $('.ContactMessage').val();
-			$(".error-message-2").html('');
-			$(".textbox").removeAttr('style');
-
-
-			if (name == '') {
-		      $(".error-message-FullName").html('Please enter your name.');
-		      $(".FullName").css('border','1px solid red');
-		      hasError = true;
-		    }
-
-		     if(emailaddressVal == '') {
-		      $(".error-message-Email").html('Please enter your email address.');
-		     	$(".Email").css('border','1px solid red');
-		      hasError = true;
-		    }
-
-		    else if(!emailReg.test(emailaddressVal)) {
-		      $(".error-message-Email").html('Please enter a valid email address.');
-		      $(".Email").css('border','1px solid red');
-		      hasError = true;
-		    }
-
-
-			  if(Category == '') {
-		      $(".error-message-Category").html('Please enter your Category.');
-		      $(".Category").css('border','1px solid red');
-		      hasError = true;
-		    }
-
-
-		 	 if(PrefferedDealer == '') {
-		      $(".error-message-Dealer").html('Please enter your Preffered Dealer.');
-		      $(".PrefferedDealer").css('border','1px solid red');
-		      hasError = true;
-		    }
-
-		    if(ContactSubject == '') {
-		      $(".error-message-Subject").html('Please enter your Subject.');
-		      $(".ContactSubject").css('border','1px solid red');
-		      hasError = true;
-		    }
-
-		    if(ContactMessage == '') {
-		      $(".error-message-ContactMessage").html('Please enter your Message.');
-		      $(".ContactMessage").css('border','1px solid red');
-		      hasError = true;
-		    }
-
-		     if(hasError == true) {
-
-		     	return false;
-		     }
-
-		    else {
-
-			   $.ajax({type:'POST', url: 'verifyContact.php',
-				data:$('#capptcha1').serialize(),
-
-				success:
-				function(response) {
-				eval( response );
-
-				}});
-				return false;
-
-			}
-
-		    });
-			</script>
 	@endsection
