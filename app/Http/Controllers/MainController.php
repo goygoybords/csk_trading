@@ -27,6 +27,17 @@ class MainController extends Controller
     }
     public function postContactUs(Request $request)
     {
+        $data = $request->all();
+        print_r($data);
+        $rules = [ 'name' => 'required', 
+                   'email' => 'required|email',
+                   'subject' => 'required',
+                   'message' => 'required',
+                 ];
+
+        $this->validate($request,$rules);
+
+        return view('main.contact')->with('msg', 'ok');
 
     }
     public function viewAboutUs()
@@ -75,22 +86,26 @@ class MainController extends Controller
         // $response->header("Content-Type", $type);
         // return $response;
 
-        $file = $request->file('fileToUpload');
-        $rules = ['fileToUpload' => 'mimes:jpg,jpeg,png|between:1,3000' ];
+        // $file = $request->file('fileToUpload');
+        // $rules = ['fileToUpload' => 'mimes:jpg,jpeg,png|between:1,3000' ];
+        // $this->validate($request, $rules);
+        $data = $request->all();
+        $rules = ['name' => 'required' , 'address' => 'email|required'];
         $this->validate($request, $rules);
+         return redirect('/test')->with('msg' , 'ok');
      
-        $path = storage_path()."\uploads";
+        // $path = storage_path()."\uploads";
          
-        $filename = $file->getClientOriginalName();
-        $type = $file->getMimeType();
-        if ($request->hasFile('fileToUpload')) 
-        {
-            $file->move($path , $filename);
-            return redirect('/test')->with('msg' , 'file uploaded');
-        }
-        else
-        {
-            return redirect('/test')->with('msg' , 'file not uploaded');
-        }
+        // $filename = $file->getClientOriginalName();
+        // $type = $file->getMimeType();
+        // if ($request->hasFile('fileToUpload')) 
+        // {
+        //     $file->move($path , $filename);
+        //     return redirect('/test')->with('msg' , 'file uploaded');
+        // }
+        // else
+        // {
+        //     return redirect('/test')->with('msg' , 'file not uploaded');
+        // }
     }
 }
