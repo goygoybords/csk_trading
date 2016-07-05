@@ -24,7 +24,7 @@ Route::group([ 'as' => 'main:' , 'middleware' => 'web'], function ()
   	
     Route::get('/home'    , ['as' => 'home'    , 'uses' => 'MainController@index' ]  );
 	Route::get('/contact' , ['as' => 'contact' , 'uses' => 'MainController@viewContactUs' ]);
-	Route::post('/contact' , ['as' => 'postContact' , 'uses' => 'MainController@postContactUs' ]);
+	Route::post('/postContact' , ['as' => 'postContact' , 'uses' => 'MainController@postContactUs' ]);
 
 
 	Route::get('/about'   , ['as' => 'about'   , 'uses' => 'MainController@viewAboutUs' ]);

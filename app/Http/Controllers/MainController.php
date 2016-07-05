@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Truck;
 use App\Truck_Category;
+use App\Mail;
 use DB;
 
 class MainController extends Controller
@@ -18,6 +19,7 @@ class MainController extends Controller
     } 
     public function index()
     {
+
         return view('main.home');
     }
 
@@ -28,18 +30,22 @@ class MainController extends Controller
     public function postContactUs(Request $request)
     {
         $data = $request->all();
-        print_r($data);
-        $rules = [ 'name' => 'required', 
-                   'email' => 'required|email',
-                   'subject' => 'required',
-                   'message' => 'required',
-                 ];
+        $rules = [ 'contact_name' => 'required', 
+                    'subject' => 'required',
+                    'email' => 'required',
+                    'message' => 'required' ];
 
         $this->validate($request,$rules);
+        // $mail = new Mail();
+        // $mail->name = $data['contact_name'];
+        // $mail->email = $data['email'];
+        // $mail->subject = $data['subject'];
+        // $mail->message = $data['message'];
+        // $mail->save();
 
-        return view('main.contact')->with('msg', 'ok');
-
+        return redirect()->route('main:contact')->with('msg' , 'Sent');
     }
+ 
     public function viewAboutUs()
     {
         return view('main.about');
@@ -62,7 +68,7 @@ class MainController extends Controller
             $description = Truck_Category::where('slug' , $slug)->first();
             $title = $description->description;
         }
-         return view('main.trucks')->with(compact('trucks', 'title'));
+        return view('main.trucks')->with(compact('trucks', 'title'));
     }
     public function viewTruck($id)
     {
@@ -90,7 +96,7 @@ class MainController extends Controller
         // $rules = ['fileToUpload' => 'mimes:jpg,jpeg,png|between:1,3000' ];
         // $this->validate($request, $rules);
         $data = $request->all();
-        $rules = ['name' => 'required' , 'address' => 'email|required'];
+        $rules = ['contact_name' => 'required' , 'address' => 'email|required'];
         $this->validate($request, $rules);
          return redirect('/test')->with('msg' , 'ok');
      

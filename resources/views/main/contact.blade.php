@@ -33,43 +33,36 @@
 						<div class="col-md-8">
 							<div id="contact-form-body">
 								<h3>SEND US A MESSAGE:</h3>
-				 				<p style="color: red;"></p> 	
-				 				<form method = "post" action = "{{ route('main:postContact') }}">
-				 				</form>				
-				 			<!-- <form method="post" action = "{{ route('main:postContact') }}" class="form-container" id="submitContact">
+				 				<p style="color: red;"></p> 					
+				 			<form method="post" action = "{{ route('main:postContact') }}" class="form-container" id="submitContact">
 				 				{{ csrf_field() }}
 								<div class="contact-form">
 									<span>Name</span>
-									<input type="text" name="name" class="FullName textbox" value = "{{ old('name') }}"/>
-									@if ($errors->has('name'))
-										<div class="error-message-2 error-message-FullName">{{ $errors->first('name') }}</div>
-                                    @endif
-									
+									<input type="text" name="contact_name" class="FullName textbox" />
+									<div class="error-message-2 error-message-FullName">   
+										@if ($errors->has('contact_name'))
+                                                <p> <strong>{{ $errors->first('contact_name') }}</strong></p>
+                                            @endif
+                                        </div>
 								</div>
 								<div class="contact-form">
 									<span>Email Address</span>
-									<input type="text" name="email" class="Email textbox" value = "{{ old('email') }}" />
-									@if ($errors->has('email'))
-									<div class="error-message-2 error-message-Email">{{ $errors->first('email') }} </div>
-									@endif
+									<input type="text" name="email" class="Email textbox" />
+									<div class="error-message-2 error-message-Email"></div>
 								</div>
 								<div class="contact-form">
 									<span>Subject</span>
 									<input type="text" name="subject" class="ContactSubject textbox" />
-									@if ($errors->has('subject'))
-									<div class="error-message-2 error-message-Subject">{{ $errors->first('subject') }}</div>
-									@endif
+									<div class="error-message-2 error-message-Subject"></div>
 								</div>
 								<div class="contact-form message">
 									<span>Message</span>
-									<textarea class="ContactMessage message" name="message" rows="4" cols="50">{{ old('message') }}</textarea>
-									@if ($errors->has('message'))
-									<div class="error-message-2 error-message-ContactMessage">{{ $errors->first('message') }}</div>
-									@endif
+									<textarea class="ContactMessage message" name="message" rows="4" cols="50"></textarea>
+									<div class="error-message-2 error-message-ContactMessage"></div>
 								</div>
 								<div class="all-fields pull-right"><span>All fields are mandatory.</span></div>
 								<button type="submit" name="submitPHP" class="submit" id="messageSubmit">SEND MESSAGE</button>
-							</form> -->
+							</form>
 							</div>
 						</div>
 					</div>
@@ -77,4 +70,3 @@
 			</div><!--/row-->
 		</div><!--/container-->
 	@endsection
-

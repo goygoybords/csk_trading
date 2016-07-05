@@ -1,6 +1,6 @@
 @extends('layouts.main')
     @section('content')
-    	<div class="container slider-wrapper">
+   	    	<div class="container slider-wrapper">
 			<div class="item">
 				<a>
 				<img id="clickimage" src="http://1.shard.bmwusa.com.edgesuite.net/l/r/OUSnGBf4A.jpg" border="0" alt="Level Up Your Next Ride" link="none" target="_blank">
